@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Ulang Tahun</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:url('frozen.jpg') center/cover no-repeat fixed;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* overlay gelap elegan */
+.overlay{
+    background:rgba(5,15,35,.65);
+    min-height:100vh;
+    padding:30px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* card utama */
+.card{
+    max-width:420px;
+    width:100%;
+    background:rgba(255,255,255,.96);
+    border-radius:22px;
+    padding:28px 24px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+    margin:0;
+    color:#1e90ff;
+    font-weight:600;
+}
+
+h2{
+    margin:10px 0 15px;
+    font-size:18px;
+    color:#333;
+}
+
+.divider{
+    width:60px;
+    height:4px;
+    background:linear-gradient(90deg,#1e90ff,#7fd8ff);
+    margin:12px auto 18px;
+    border-radius:5px;
+}
+
+p{
+    font-size:14px;
+    color:#444;
+    line-height:1.6;
+    margin:8px 0;
+}
+
+.info{
+    background:#f3f8ff;
+    border-radius:14px;
+    padding:12px;
+    margin:15px 0;
+    font-size:14px;
+}
+
+/* tombol */
+.btn{
+    display:block;
+    width:100%;
+    margin-top:12px;
+    padding:12px;
+    border-radius:30px;
+    border:none;
+    font-size:15px;
+    cursor:pointer;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(135deg,#1e90ff,#00c6ff);
+    transition:.3s;
+}
+.btn:hover{transform:scale(1.03)}
+
+iframe{
+    width:100%;
+    height:220px;
+    border:0;
+    border-radius:14px;
+    margin-top:15px;
+}
+
+/* animasi salju */
+.snow{
+    position:fixed;
+    top:-10px;
+    color:white;
+    pointer-events:none;
+    animation:fall linear infinite;
+    z-index:1;
+}
+
+@keyframes fall{
+    to{transform:translateY(110vh)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+    <div class="card">
+        <h1>❄️ Undangan Ulang Tahun ❄️</h1>
+        <div class="divider"></div>
+
+        <h2>
+            Shanum Naresha Nurfadillah (5 Th)<br>
+            &<br>
+            Shafanya Aresya Nurfadillah (1 Th)
+        </h2>
+
+        <p>
+            Dengan penuh kebahagiaan kami mengundang
+            Bapak/Ibu/Saudara/i untuk hadir dan berbagi
+            keceriaan bersama kami.
+        </p>
+
+        <div class="info">
+            🗓️ <b>14 Februari 2026</b><br>
+            📍 Jalan Swadaya II No 74B<br>
+            Bojongmenteng
+        </div>
+
+        <button class="btn" onclick="playMusic()">🎵 Buka Undangan</button>
+
+        <a class="btn"
+           href="https://wa.me/6288210931207?text=Halo%20saya%20ingin%20konfirmasi%20kehadiran"
+           target="_blank">
+           💬 Konfirmasi via WhatsApp
+        </a>
+
+        <iframe
+          src="https://www.google.com/maps?q=-6.305539,106.977612&output=embed">
+        </iframe>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic(){
+    document.getElementById('bgMusic').play();
+}
+
+// buat salju
+for(let i=0;i<45;i++){
+    let snow=document.createElement("div");
+    snow.className="snow";
+    snow.innerHTML="❄";
+    snow.style.left=Math.random()*100+"vw";
+    snow.style.animationDuration=(3+Math.random()*5)+"s";
+    snow.style.opacity=Math.random();
+    snow.style.fontSize=(10+Math.random()*18)+"px";
+    document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>
